@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateKategorieHasKategorieTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateKategorieHasKategorieLabel_depth}" for="depth" />
+                    <h:inputText id="depth" value="#{kategorieHasKategorieController.selected.depth}" title="#{bundle.CreateKategorieHasKategorieTitle_depth}" />
+                    <h:outputLabel value="#{bundle.CreateKategorieHasKategorieLabel_kategorie}" for="kategorie" />
+                    <h:selectOneMenu id="kategorie" value="#{kategorieHasKategorieController.selected.kategorie}" title="#{bundle.CreateKategorieHasKategorieTitle_kategorie}" required="true" requiredMessage="#{bundle.CreateKategorieHasKategorieRequiredMessage_kategorie}">
+                        <f:selectItems value="#{kategorieController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateKategorieHasKategorieLabel_kategorie1}" for="kategorie1" />
+                    <h:selectOneMenu id="kategorie1" value="#{kategorieHasKategorieController.selected.kategorie1}" title="#{bundle.CreateKategorieHasKategorieTitle_kategorie1}" required="true" requiredMessage="#{bundle.CreateKategorieHasKategorieRequiredMessage_kategorie1}">
+                        <f:selectItems value="#{kategorieController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{kategorieHasKategorieController.create}" value="#{bundle.CreateKategorieHasKategorieSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{kategorieHasKategorieController.prepareList}" value="#{bundle.CreateKategorieHasKategorieShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateKategorieHasKategorieIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewAdresTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewAdresLabel_adresId}"/>
+                    <h:outputText value="#{adresController.selected.adresId}" title="#{bundle.ViewAdresTitle_adresId}"/>
+                    <h:outputText value="#{bundle.ViewAdresLabel_kodPocztowy}"/>
+                    <h:outputText value="#{adresController.selected.kodPocztowy}" title="#{bundle.ViewAdresTitle_kodPocztowy}"/>
+                    <h:outputText value="#{bundle.ViewAdresLabel_miasto}"/>
+                    <h:outputText value="#{adresController.selected.miasto}" title="#{bundle.ViewAdresTitle_miasto}"/>
+                    <h:outputText value="#{bundle.ViewAdresLabel_nrDomu}"/>
+                    <h:outputText value="#{adresController.selected.nrDomu}" title="#{bundle.ViewAdresTitle_nrDomu}"/>
+                    <h:outputText value="#{bundle.ViewAdresLabel_status}"/>
+                    <h:outputText value="#{adresController.selected.status}" title="#{bundle.ViewAdresTitle_status}"/>
+                    <h:outputText value="#{bundle.ViewAdresLabel_ulica}"/>
+                    <h:outputText value="#{adresController.selected.ulica}" title="#{bundle.ViewAdresTitle_ulica}"/>
+                    <h:outputText value="#{bundle.ViewAdresLabel_userIdFk}"/>
+                    <h:outputText value="#{adresController.selected.userIdFk}" title="#{bundle.ViewAdresTitle_userIdFk}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{adresController.destroyAndView}" value="#{bundle.ViewAdresDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewAdresEditLink}"/>
+                <br />
+                <h:commandLink action="#{adresController.prepareCreate}" value="#{bundle.ViewAdresCreateLink}" />
+                <br />
+                <h:commandLink action="#{adresController.prepareList}" value="#{bundle.ViewAdresShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewAdresIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
