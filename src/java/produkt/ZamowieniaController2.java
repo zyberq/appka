@@ -20,7 +20,7 @@ import javax.faces.model.SelectItem;
 
 @ManagedBean(name = "zamowieniaController")
 @SessionScoped
-public class ZamowieniaController implements Serializable {
+public class ZamowieniaController2 implements Serializable {
 
     private Zamowienia current;
     private DataModel items = null;
